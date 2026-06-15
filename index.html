@@ -7,7 +7,27 @@
   </head>
   <body>
     <!-- <canvas id="canvas" width="500" height="500"></canvas> -->
-    <canvas id="canvas" display: block></canvas>
+    <canvas id="canvas"></canvas>
+    <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function resizeCanvas() {
+      // Set drawing buffer dimensions directly to the window size
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Draw your filled rectangle to cover the new area
+      ctx.fillStyle = "royalblue";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    // Run on initial load
+    resizeCanvas();
+
+    // Re-run whenever the user resizes the browser window
+    window.addEventListener("resize", resizeCanvas);
+  </script>
     
 
     <script src="https://unpkg.com/@rive-app/webgl2@2"></script>
